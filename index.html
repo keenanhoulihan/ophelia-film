@@ -11,12 +11,11 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:       #131313;
-      --bg2:      #1a1a1a;
-      --text:     #f0ede8;
-      --muted:    #5a5a5a;
-      --warm:     #c8a870;
-      --border:   rgba(255,255,255,0.07);
+      --bg:     #131313;
+      --bg2:    #1a1a1a;
+      --text:   #f0ede8;
+      --muted:  #5a5a5a;
+      --border: rgba(255,255,255,0.07);
     }
 
     html { scroll-behavior: smooth; }
@@ -33,7 +32,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
     }
@@ -48,8 +47,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 28px 52px;
-      background: linear-gradient(to bottom, rgba(19,19,19,0.92) 0%, transparent 100%);
-      backdrop-filter: blur(0px);
+      background: linear-gradient(to bottom, rgba(19,19,19,0.9) 0%, transparent 100%);
     }
 
     .nav-logo {
@@ -61,11 +59,7 @@
       text-decoration: none;
     }
 
-    nav ul {
-      display: flex;
-      gap: 40px;
-      list-style: none;
-    }
+    nav ul { display: flex; gap: 40px; list-style: none; }
 
     nav a {
       color: var(--muted);
@@ -82,7 +76,7 @@
     /* ── Hero ── */
     .hero {
       height: 100vh;
-      min-height: 600px;
+      min-height: 640px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -91,28 +85,31 @@
       overflow: hidden;
     }
 
-    /* Cinematic background — replace src with a film still when available */
     .hero-bg {
       position: absolute;
       inset: 0;
       /*
-        TO CUSTOMIZE: swap this gradient for a film still:
+        SWAP IN YOUR OWN FILM STILL:
         background: url('your-still.jpg') center/cover no-repeat;
       */
       background:
-        radial-gradient(ellipse 60% 50% at 65% 40%, rgba(180,130,60,0.12) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(100,80,60,0.08) 0%, transparent 60%),
-        linear-gradient(160deg, #0e0e0e 0%, #1a1610 40%, #0d0d0d 100%);
+        url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80')
+        center / cover no-repeat;
+      transform: scale(1.04);
+      filter: brightness(0.55) saturate(0.7);
+      transition: transform 8s ease;
     }
+
+    .hero:hover .hero-bg { transform: scale(1.0); }
 
     .hero-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(19,19,19,0.15) 0%,
-        rgba(19,19,19,0.3)  45%,
-        rgba(19,19,19,0.88) 85%,
+        rgba(19,19,19,0.1)  0%,
+        rgba(19,19,19,0.25) 40%,
+        rgba(19,19,19,0.82) 80%,
         rgba(19,19,19,1)    100%
       );
     }
@@ -162,16 +159,26 @@
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 88px;
+      gap: 72px;
       align-items: start;
     }
 
+    .about-left { display: flex; flex-direction: column; gap: 36px; }
+
     .about-headline {
-      font-size: clamp(32px, 4.5vw, 60px);
+      font-size: clamp(32px, 4.5vw, 58px);
       font-weight: 900;
       line-height: 1.02;
       letter-spacing: -0.025em;
       color: #fff;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: brightness(0.75) saturate(0.65);
+      display: block;
     }
 
     .about-body p {
@@ -182,8 +189,46 @@
     }
 
     .about-body p + p { margin-top: 22px; }
-
     .about-body em { font-style: italic; color: rgba(255,255,255,0.7); }
+
+    /* ── Mood strip ── */
+    .mood-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      padding: 0;
+    }
+
+    .mood-strip figure {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 2 / 3;
+    }
+
+    .mood-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.65) saturate(0.6);
+      transition: filter 0.5s ease, transform 0.6s ease;
+    }
+
+    .mood-strip figure:hover img {
+      filter: brightness(0.8) saturate(0.75);
+      transform: scale(1.03);
+    }
+
+    .mood-strip figcaption {
+      position: absolute;
+      bottom: 22px;
+      left: 24px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
 
     /* ── Quote ── */
     .quote-wrap {
@@ -196,7 +241,7 @@
       font-weight: 300;
       font-style: italic;
       line-height: 1.55;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.78);
       margin-bottom: 28px;
     }
 
@@ -206,6 +251,33 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
+    }
+
+    /* ── Full-width image banner ── */
+    .banner {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      filter: brightness(0.5) saturate(0.55);
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(19,19,19,0.35) 0%,
+        rgba(19,19,19,0.15) 50%,
+        rgba(19,19,19,0.45) 100%
+      );
     }
 
     /* ── Support ── */
@@ -268,9 +340,7 @@
       border-color: #fff;
     }
 
-    .btn.primary:hover {
-      background: rgba(255,255,255,0.87);
-    }
+    .btn.primary:hover { background: rgba(255,255,255,0.87); }
 
     /* ── Fundraiser ── */
     .fundraiser-card {
@@ -308,11 +378,7 @@
       border-top: 1px solid var(--border);
     }
 
-    footer p {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
 
     footer a {
       font-size: 11px;
@@ -333,6 +399,10 @@
       hr { margin: 0 28px; }
       section { padding: 80px 28px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .about-img { aspect-ratio: 16/9; }
+      .mood-strip { grid-template-columns: 1fr 1fr; }
+      .mood-strip figure:last-child { display: none; }
+      .banner { height: 300px; }
       .fundraiser-card { padding: 40px 28px; }
       footer { padding: 28px; flex-direction: column; gap: 14px; text-align: center; }
     }
@@ -350,6 +420,7 @@
   </nav>
 
   <!-- HERO -->
+  <!-- Swap the Unsplash URL for an actual film still when ready -->
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -365,8 +436,15 @@
   <section>
     <p class="label">The Film</p>
     <div class="about-grid">
-      <div>
+      <div class="about-left">
         <h2 class="about-headline">Sometimes the truth&nbsp;hurts. Sometimes it&nbsp;heals.</h2>
+        <!-- Swap for your own production still -->
+        <img
+          class="about-img"
+          src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=700&q=80"
+          alt="A solitary figure in dramatic light"
+          loading="lazy"
+        >
       </div>
       <div class="about-body">
         <p>
@@ -382,6 +460,34 @@
     </div>
   </section>
 
+  <!-- MOOD STRIP — swap images for film stills or production photos -->
+  <div class="mood-strip">
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&h=900&q=80"
+        alt="Stage light"
+        loading="lazy"
+      >
+      <figcaption>The Stage</figcaption>
+    </figure>
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=600&h=900&q=80"
+        alt="Interior light"
+        loading="lazy"
+      >
+      <figcaption>The World</figcaption>
+    </figure>
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=600&h=900&q=80"
+        alt="Solitude"
+        loading="lazy"
+      >
+      <figcaption>The Grief</figcaption>
+    </figure>
+  </div>
+
   <hr>
 
   <!-- DIRECTOR QUOTE -->
@@ -395,6 +501,16 @@
     </div>
   </section>
 
+  <!-- FULL-WIDTH BANNER IMAGE — swap for a production still -->
+  <div class="banner">
+    <img
+      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1920&q=80"
+      alt="Cinematic mood"
+      loading="lazy"
+    >
+    <div class="banner-overlay"></div>
+  </div>
+
   <hr>
 
   <!-- SUPPORT -->
@@ -406,16 +522,14 @@
         Every contribution goes directly toward bringing this story to life — from production to post. View the pitch deck to learn more about the vision.
       </p>
       <div class="btn-row">
-        <!-- Replace YOUR_GOFUNDME_LINK with your actual GoFundMe URL -->
         <a href="YOUR_GOFUNDME_LINK" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
-        <!-- Replace YOUR_PITCH_DECK_LINK with a hosted link to the PDF (e.g. Google Drive) -->
         <a href="YOUR_PITCH_DECK_LINK" target="_blank" rel="noopener" class="btn">View Pitch Deck</a>
       </div>
     </div>
   </section>
 
   <hr>
- 
+
   <!-- FUNDRAISER -->
   <section>
     <div class="fundraiser-card">
@@ -424,7 +538,6 @@
       <p>
         We're hosting a fundraiser — details dropping soon on Instagram and right here. Stay close.
       </p>
-      <!-- Replace YOUR_INSTAGRAM_HANDLE with your actual handle, e.g. ophelia.film -->
       <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener" class="btn">Follow on Instagram</a>
     </div>
   </section>
