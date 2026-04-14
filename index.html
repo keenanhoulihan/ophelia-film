@@ -80,7 +80,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 0 52px 180px;
+      padding: 0 52px 280px;
       overflow: hidden;
     }
 
@@ -115,7 +115,7 @@
       line-height: 0.88;
       letter-spacing: -0.04em;
       color: #fff;
-      margin-bottom: 22px;
+      margin-bottom: 44px;
     }
 
     .hero-byline {
@@ -293,9 +293,11 @@
     .support {
       background: var(--bg2);
       text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
-    .support-inner { max-width: 600px; margin: 0 auto; }
+    .support-inner { max-width: 640px; margin: 0 auto; }
 
     .support h2 {
       font-size: clamp(40px, 6vw, 76px);
@@ -311,10 +313,10 @@
       font-weight: 300;
       line-height: 1.75;
       color: rgba(255,255,255,0.45);
-      margin-bottom: 48px;
+      margin-bottom: 52px;
     }
 
-    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
     .btn {
       display: inline-block;
@@ -332,8 +334,23 @@
 
     .btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.35); }
 
-    .btn.primary { background: #fff; color: #111; border-color: #fff; }
+    .btn.primary {
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+      padding: 20px 52px;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+    }
     .btn.primary:hover { background: rgba(255,255,255,0.87); }
+
+    .donate-note {
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
 
     /* ── Fundraiser ── */
     .fundraiser-card {
@@ -479,12 +496,6 @@
     </div>
   </section>
 
-  <!-- VHS BANNER — images/vhs.jpg -->
-  <div class="banner">
-    <img src="images/vhs.jpg" alt="VHS tapes and television">
-    <div class="banner-overlay"></div>
-  </div>
-
   <hr>
 
   <!-- SUPPORT -->
@@ -493,12 +504,13 @@
       <p class="label">Support the Film</p>
       <h2>Help us make&nbsp;it.</h2>
       <p>
-        Every contribution goes directly toward bringing this story to life — from production to post. View the pitch deck to learn more about the vision.
+        Every contribution goes directly toward bringing this story to life — from production to post. No amount is too small.
       </p>
       <div class="btn-row">
         <a href="https://gofund.me/40449217f" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
         <a href="YOUR_PITCH_DECK_LINK" target="_blank" rel="noopener" class="btn">View Pitch Deck</a>
       </div>
+      <p class="donate-note">All donations go directly to production costs.</p>
     </div>
   </section>
 
