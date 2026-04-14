@@ -27,7 +27,6 @@
       overflow-x: hidden;
     }
 
-    /* ── Grain ── */
     body::after {
       content: '';
       position: fixed;
@@ -88,15 +87,9 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      /*
-        SWAP IN YOUR OWN FILM STILL:
-        background: url('your-still.jpg') center/cover no-repeat;
-      */
-      background:
-        url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80')
-        center / cover no-repeat;
+      background: url('images/hero.jpg') center / cover no-repeat;
       transform: scale(1.04);
-      filter: brightness(0.55) saturate(0.7);
+      filter: brightness(0.5) saturate(0.75);
       transition: transform 8s ease;
     }
 
@@ -107,17 +100,14 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(19,19,19,0.1)  0%,
-        rgba(19,19,19,0.25) 40%,
-        rgba(19,19,19,0.82) 80%,
+        rgba(19,19,19,0.05) 0%,
+        rgba(19,19,19,0.2)  40%,
+        rgba(19,19,19,0.85) 80%,
         rgba(19,19,19,1)    100%
       );
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
+    .hero-content { position: relative; z-index: 2; }
 
     .hero h1 {
       font-size: clamp(96px, 16vw, 200px);
@@ -136,14 +126,12 @@
       color: rgba(255,255,255,0.4);
     }
 
-    /* ── Divider ── */
     hr {
       border: none;
       border-top: 1px solid var(--border);
       margin: 0 52px;
     }
 
-    /* ── Section base ── */
     section { padding: 110px 52px; }
 
     .label {
@@ -175,10 +163,11 @@
 
     .about-img {
       width: 100%;
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
-      filter: brightness(0.75) saturate(0.65);
+      object-position: center;
       display: block;
+      filter: brightness(0.8) saturate(0.8);
     }
 
     .about-body p {
@@ -196,7 +185,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 3px;
-      padding: 0;
     }
 
     .mood-strip figure {
@@ -210,12 +198,12 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: brightness(0.65) saturate(0.6);
+      filter: brightness(0.6) saturate(0.65);
       transition: filter 0.5s ease, transform 0.6s ease;
     }
 
     .mood-strip figure:hover img {
-      filter: brightness(0.8) saturate(0.75);
+      filter: brightness(0.78) saturate(0.8);
       transform: scale(1.03);
     }
 
@@ -227,20 +215,33 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.5);
     }
 
-    /* ── Quote ── */
-    .quote-wrap {
-      max-width: 820px;
-      margin: 0 auto;
+    /* ── Vision / Quote ── */
+    .vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .vision-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vision-img {
+      width: 100%;
+      display: block;
+      filter: brightness(0.7) saturate(0.6);
     }
 
     .pull-quote {
-      font-size: clamp(20px, 2.8vw, 34px);
+      font-size: clamp(22px, 3vw, 38px);
       font-weight: 300;
       font-style: italic;
-      line-height: 1.55;
+      line-height: 1.5;
       color: rgba(255,255,255,0.78);
       margin-bottom: 28px;
     }
@@ -251,12 +252,20 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 32px;
     }
 
-    /* ── Full-width image banner ── */
+    .vision-secondary {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── VHS banner ── */
     .banner {
       position: relative;
-      height: 480px;
+      height: 420px;
       overflow: hidden;
     }
 
@@ -264,9 +273,9 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center 40%;
       display: block;
-      filter: brightness(0.5) saturate(0.55);
+      filter: brightness(0.45) saturate(0.7);
     }
 
     .banner-overlay {
@@ -274,9 +283,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(19,19,19,0.35) 0%,
-        rgba(19,19,19,0.15) 50%,
-        rgba(19,19,19,0.45) 100%
+        rgba(19,19,19,0.5) 0%,
+        rgba(19,19,19,0.1) 50%,
+        rgba(19,19,19,0.5) 100%
       );
     }
 
@@ -286,10 +295,7 @@
       text-align: center;
     }
 
-    .support-inner {
-      max-width: 600px;
-      margin: 0 auto;
-    }
+    .support-inner { max-width: 600px; margin: 0 auto; }
 
     .support h2 {
       font-size: clamp(40px, 6vw, 76px);
@@ -308,12 +314,7 @@
       margin-bottom: 48px;
     }
 
-    .btn-row {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
     .btn {
       display: inline-block;
@@ -329,17 +330,9 @@
       cursor: pointer;
     }
 
-    .btn:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.35);
-    }
+    .btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.35); }
 
-    .btn.primary {
-      background: #fff;
-      color: #111;
-      border-color: #fff;
-    }
-
+    .btn.primary { background: #fff; color: #111; border-color: #fff; }
     .btn.primary:hover { background: rgba(255,255,255,0.87); }
 
     /* ── Fundraiser ── */
@@ -350,8 +343,6 @@
       margin: 0 auto;
       text-align: center;
     }
-
-    .fundraiser-card .label { margin-bottom: 20px; }
 
     .fundraiser-card h3 {
       font-size: clamp(28px, 3.5vw, 44px);
@@ -369,7 +360,6 @@
       margin-bottom: 36px;
     }
 
-    /* ── Footer ── */
     footer {
       padding: 36px 52px;
       display: flex;
@@ -391,7 +381,6 @@
 
     footer a:hover { color: var(--text); }
 
-    /* ── Responsive ── */
     @media (max-width: 800px) {
       nav { padding: 22px 28px; }
       nav ul { gap: 24px; }
@@ -399,10 +388,11 @@
       hr { margin: 0 28px; }
       section { padding: 80px 28px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
-      .about-img { aspect-ratio: 16/9; }
+      .vision-grid { grid-template-columns: 1fr; }
+      .vision-img-wrap { display: none; }
       .mood-strip { grid-template-columns: 1fr 1fr; }
       .mood-strip figure:last-child { display: none; }
-      .banner { height: 300px; }
+      .banner { height: 280px; }
       .fundraiser-card { padding: 40px 28px; }
       footer { padding: 28px; flex-direction: column; gap: 14px; text-align: center; }
     }
@@ -410,7 +400,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">Ophelia</a>
     <ul>
@@ -419,8 +408,7 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <!-- Swap the Unsplash URL for an actual film still when ready -->
+  <!-- HERO — images/hero.jpg -->
   <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -432,19 +420,13 @@
 
   <hr>
 
-  <!-- ABOUT -->
+  <!-- ABOUT — images/spiral.jpg -->
   <section>
     <p class="label">The Film</p>
     <div class="about-grid">
       <div class="about-left">
         <h2 class="about-headline">Sometimes the truth&nbsp;hurts. Sometimes it&nbsp;heals.</h2>
-        <!-- Swap for your own production still -->
-        <img
-          class="about-img"
-          src="https://images.unsplash.com/photo-1503095396549-807759245b35?auto=format&fit=crop&w=700&q=80"
-          alt="A solitary figure in dramatic light"
-          loading="lazy"
-        >
+        <img class="about-img" src="images/spiral.jpg" alt="A figure in a circle of light">
       </div>
       <div class="about-body">
         <p>
@@ -460,54 +442,46 @@
     </div>
   </section>
 
-  <!-- MOOD STRIP — swap images for film stills or production photos -->
+  <!-- MOOD STRIP — images/shadow.jpg | images/classroom.jpg | images/hallway.jpg -->
   <div class="mood-strip">
     <figure>
-      <img
-        src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&h=900&q=80"
-        alt="Stage light"
-        loading="lazy"
-      >
+      <img src="images/shadow.jpg" alt="A shadow cast on a wall">
       <figcaption>The Stage</figcaption>
     </figure>
     <figure>
-      <img
-        src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?auto=format&fit=crop&w=600&h=900&q=80"
-        alt="Interior light"
-        loading="lazy"
-      >
+      <img src="images/classroom.jpg" alt="Dark classroom with spotlight">
       <figcaption>The World</figcaption>
     </figure>
     <figure>
-      <img
-        src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=600&h=900&q=80"
-        alt="Solitude"
-        loading="lazy"
-      >
-      <figcaption>The Grief</figcaption>
+      <img src="images/hallway.jpg" alt="Student in golden hallway">
+      <figcaption>The Walk</figcaption>
     </figure>
   </div>
 
   <hr>
 
-  <!-- DIRECTOR QUOTE -->
+  <!-- DIRECTOR VISION — images/vision.jpg (the 3-panel smoking image) -->
   <section>
-    <div class="quote-wrap">
-      <p class="label">Director's Vision</p>
-      <p class="pull-quote">
-        "Ophelia is a stage where loss performs itself night after night, even after the audience has gone home."
-      </p>
-      <p class="quote-source">— Lane Haven, Writer &amp; Director</p>
+    <div class="vision-grid">
+      <div class="vision-img-wrap">
+        <img class="vision-img" src="images/vision.jpg" alt="Director's vision">
+      </div>
+      <div>
+        <p class="label">Director's Vision</p>
+        <p class="pull-quote">
+          "Ophelia is a stage where loss performs itself night after night, even after the audience has gone home."
+        </p>
+        <p class="quote-source">— Lane Haven, Writer &amp; Director</p>
+        <p class="vision-secondary">
+          I want to make theatre <em>look cool</em> — increasing accessibility to a larger audience. Reimagined through a modern lens, inspired by the evocative power of live performance. I want this film to move people in the way that breathes, lives, and flows like theatre.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- FULL-WIDTH BANNER IMAGE — swap for a production still -->
+  <!-- VHS BANNER — images/vhs.jpg -->
   <div class="banner">
-    <img
-      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1920&q=80"
-      alt="Cinematic mood"
-      loading="lazy"
-    >
+    <img src="images/vhs.jpg" alt="VHS tapes and television">
     <div class="banner-overlay"></div>
   </div>
 
@@ -522,7 +496,7 @@
         Every contribution goes directly toward bringing this story to life — from production to post. View the pitch deck to learn more about the vision.
       </p>
       <div class="btn-row">
-        <a href="YOUR_GOFUNDME_LINK" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
+        <a href="https://gofund.me/40449217f" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
         <a href="YOUR_PITCH_DECK_LINK" target="_blank" rel="noopener" class="btn">View Pitch Deck</a>
       </div>
     </div>
@@ -542,7 +516,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2025 Ophelia. A short film by Lane Haven.</p>
     <a href="contributors.html">Contributors →</a>
