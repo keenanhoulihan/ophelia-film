@@ -289,6 +289,48 @@
       );
     }
 
+    /* ── Deck CTA ── */
+    .deck-cta {
+      background: var(--bg2);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .deck-cta-inner {
+      max-width: 860px;
+    }
+
+    .deck-headline {
+      font-size: clamp(52px, 9vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 0.92;
+      margin-bottom: 24px;
+    }
+
+    .deck-sub {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px;
+      margin-bottom: 48px;
+    }
+
+    .deck-btn {
+      padding: 18px 52px;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    .deck-btn:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.7);
+    }
+
     /* ── Support ── */
     .support {
       background: var(--bg2);
@@ -459,6 +501,18 @@
     </div>
   </section>
 
+  <!-- PITCH DECK CTA -->
+  <section class="deck-cta">
+    <div class="deck-cta-inner">
+      <p class="label">The Vision</p>
+      <h2 class="deck-headline">Read the&nbsp;deck.</h2>
+      <p class="deck-sub">Everything behind the film — synopsis, characters, director's vision, and world.</p>
+      <a href="OPHELIA_DECK.pdf" target="_blank" rel="noopener" class="btn deck-btn">View Pitch Deck</a>
+    </div>
+  </section>
+
+  <hr>
+
   <!-- MOOD STRIP — images/shadow.jpg | images/classroom.jpg | images/hallway.jpg -->
   <div class="mood-strip">
     <figure>
@@ -508,7 +562,6 @@
       </p>
       <div class="btn-row">
         <a href="https://gofund.me/40449217f" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
-        <a href="OPHELIA_DECK.pdf" target="_blank" rel="noopener" class="btn">View Pitch Deck</a>
       </div>
       <p class="donate-note">All donations go directly to production costs.</p>
     </div>
