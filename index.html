@@ -88,6 +88,7 @@
       position: absolute;
       inset: 0;
       background: url('images/hero.jpg') center / cover no-repeat;
+      background-position: center 30%;
       transform: scale(1.04);
       filter: brightness(0.5) saturate(0.75);
       transition: transform 8s ease;
@@ -443,7 +444,15 @@
     @media (max-width: 800px) {
       nav { padding: 22px 28px; }
       nav ul { gap: 24px; }
-      .hero { padding: 0 28px 64px; }
+      .hero {
+        padding: 0 28px 100px;
+        height: 100svh;
+      }
+      .hero-bg {
+        background-position: center center;
+        transform: none;
+      }
+      .hero:hover .hero-bg { transform: none; }
       hr { margin: 0 28px; }
       section { padding: 80px 28px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
