@@ -3,518 +3,487 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ophelia — A Film by Lane Haven</title>
+  <title>Ophelia - A Film by Lane Haven</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     :root {
-        --bg:     #131313;
-        --bg2:    #1a1a1a;
-        --text:   #f0ede8;
-        --muted:  #5a5a5a;
-        --border: rgba(255,255,255,0.07);
+      --bg: #131313;
+      --bg2: #1a1a1a;
+      --text: #f0ede8;
+      --muted: #5a5a5a;
+      --border: rgba(255,255,255,0.07);
     }
-
     html { scroll-behavior: smooth; }
-
     body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      overflow-x: hidden;
     }
-
     body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 9999;
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
     }
-
-    /* ── Nav ── */
+    /* Nav */
     nav {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%;
-        z-index: 500;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.4rem 2.4rem;
-        background: linear-gradient(to bottom, rgba(19,19,19,0.9) 0%, transparent 100%);
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 500;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 2.4rem;
+      background: linear-gradient(to bottom, rgba(19,19,19,0.9) 0%, transparent 100%);
     }
     .nav-logo {
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--text);
-        text-decoration: none;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
     }
     nav ul { display: flex; gap: 2rem; list-style: none; }
     nav a {
-        color: var(--muted);
-        text-decoration: none;
-        font-size: 0.68rem;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        transition: color 0.25s;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.25s;
     }
     nav a:hover, nav a.active { color: var(--text); }
 
-    /* ── Hero ── */
+    /* Hero */
     .hero {
-        height: 100vh;
-        min-height: 640px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 0 2.4rem 4rem;
-        overflow: hidden;
+      height: 100vh;
+      min-height: 640px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 2.4rem 4rem;
+      overflow: hidden;
     }
     .hero-bg {
-        position: absolute;
-        inset: 0;
-        background: url('images/hero.jpg') center center/cover no-repeat;
-        background-position: center 30%;
-        transform: scale(1.04);
-        filter: brightness(0.5) saturate(0.75);
-        transition: transform 6s ease;
+      position: absolute;
+      inset: 0;
+      background: url('images/hero.jpg') center center/cover no-repeat;
+      background-position: center 30%;
+      transform: scale(1.04);
+      filter: brightness(0.5) saturate(0.75);
+      transition: transform 6s ease;
     }
     .hero:hover .hero-bg { transform: scale(1.0); }
     .hero-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom,
-            rgba(0,0,0,0.05) 0%,
-            rgba(0,0,0,0.2) 40%,
-            rgba(0,0,0,0.85) 80%,
-            rgba(0,0,0,1) 100%);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.85) 80%, rgba(0,0,0,1) 100%);
     }
     .hero-content { position: relative; z-index: 1; }
     .hero h1 {
-        font-size: clamp(5rem, 14vw, 12rem);
-        font-weight: 900;
-        line-height: 0.88;
-        letter-spacing: -0.04em;
-        color: #fff;
-        margin-bottom: 1.2rem;
+      font-size: clamp(5rem, 14vw, 12rem);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: #fff;
+      margin-bottom: 1.2rem;
     }
     .hero-byline {
-        font-size: 0.72rem;
-        font-weight: 300;
-        letter-spacing: 0.28em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.4);
-        border: none;
-        border-top: 1px solid var(--border);
-        padding-top: 1rem;
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
     }
-
     section { padding: 7rem 2.4rem; }
-
     .label {
-        font-size: 0.65rem;
-        font-weight: 700;
-        letter-spacing: 0.32em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 2rem;
-        display: block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: block;
     }
 
-    /* ── About ── */
+    /* About */
     .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
     }
-    .about-left { display: flex; flex-direction: column; gap: 2rem; }
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
     .about-headline {
-        font-size: clamp(2.4rem, 4vw, 4.5rem);
-        font-weight: 900;
-        line-height: 1.02;
-        letter-spacing: -0.025em;
-        color: #fff;
+      font-size: clamp(2.4rem, 4vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      color: #fff;
     }
     .about-img {
-        width: 100%;
-        aspect-ratio: 3/4;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-        filter: brightness(0.8) saturate(0.8);
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: brightness(0.8) saturate(0.8);
     }
     .about-body {
-        font-size: 1rem;
-        font-weight: 300;
-        line-height: 1.85;
-        color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
     }
     .about-body p + p { margin-top: 1.2rem; }
     .about-body em { font-style: italic; color: rgba(255,255,255,0.7); }
 
-    /* ── Mood strip ── */
+    /* Mood strip */
     .mood-strip {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.4rem;
     }
     .mood-strip figure {
-        position: relative;
-        overflow: hidden;
-        aspect-ratio: 2/3;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 2/3;
     }
     .mood-strip img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        filter: brightness(0.6) saturate(0.65);
-        transition: filter 0.5s ease, transform 0.6s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.6) saturate(0.65);
+      transition: filter 0.5s ease, transform 0.6s ease;
     }
     .mood-strip figure:hover img {
-        filter: brightness(0.78) saturate(0.8);
-        transform: scale(1.03);
-    }
-    .mood-strip figcaption {
-        position: absolute;
-        bottom: 1rem;
-        left: 1.2rem;
-        font-size: 0.6rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.5);
+      filter: brightness(0.78) saturate(0.8);
+      transform: scale(1.03);
     }
 
-    /* ── Vision / Quote ── */
+    /* Vision */
     .vision-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 5rem;
-        align-items: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
     }
-    .vision-img-wrap { position: relative; overflow: hidden; }
+    .vision-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
     .vision-img {
-        width: 100%;
-        display: block;
-        filter: brightness(0.7) saturate(0.6);
+      width: 100%;
+      display: block;
+      filter: brightness(0.7) saturate(0.6);
     }
-    .pull-quote {
-        font-size: clamp(1.3rem, 2.2vw, 1.9rem);
-        font-weight: 300;
-        font-style: italic;
-        line-height: 1.5;
-        color: rgba(255,255,255,0.78);
-        margin-bottom: 1.2rem;
+    .vision-text { }
+    .vision-statement {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.6);
     }
-    .quote-source {
-        font-size: 0.65rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 2.5rem;
+    .vision-statement p + p { margin-top: 1.2rem; }
+    .vision-instagram {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
-    .vision-secondary {
-        font-size: 0.95rem;
-        font-weight: 300;
-        line-height: 1.8;
-        color: rgba(255,255,255,0.4);
+    .vision-instagram a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.25s;
     }
+    .vision-instagram a:hover { color: var(--text); }
 
-    /* ── VHS banner ── */
+    /* VHS banner */
     .banner { position: relative; overflow: hidden; }
     .banner img {
-        width: 100%;
-        height: auto;
-        max-height: 420px;
-        object-fit: cover;
-        object-position: center center;
-        display: block;
-        filter: brightness(0.45) saturate(0.7);
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: brightness(0.45) saturate(0.7);
     }
     .banner-overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.5) 100%);
     }
 
-    /* ── Deck CTA ── */
+    /* Deck CTA */
     .deck-cta {
-        background: var(--bg2);
-        border-top: 1px solid rgba(255,255,255,0.12);
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: var(--bg2);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .deck-cta-inner { max-width: 860px; }
     .deck-headline {
-        font-size: clamp(3rem, 8vw, 7rem);
-        font-weight: 900;
-        letter-spacing: -0.04em;
-        color: #fff;
-        line-height: 0.92;
-        margin-bottom: 1.5rem;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: #fff;
+      line-height: 0.92;
+      margin-bottom: 1.5rem;
     }
     .deck-sub {
-        font-size: 0.95rem;
-        font-weight: 300;
-        line-height: 1.7;
-        color: rgba(255,255,255,0.45);
-        max-width: 480px;
-        margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.45);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
     }
     .deck-btn {
-        padding: 0.85rem 1.8rem;
-        font-size: 0.7rem;
-        letter-spacing: 0.2em;
-        border-color: rgba(255,255,255,0.4);
-        color: #fff;
+      padding: 0.85rem 1.8rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
     }
     .deck-btn:hover {
-        background: rgba(255,255,255,0.07);
-        border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.7);
     }
 
-    /* ── Support ── */
+    /* Support */
     .support {
-        background: var(--bg2);
-        text-align: center;
-        border-top: 1px solid rgba(255,255,255,0.12);
-        border-bottom: 1px solid rgba(255,255,255,0.12);
+      background: var(--bg2);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
     }
     .support-inner { max-width: 640px; margin: 0 auto; }
     .support h2 {
-        font-size: clamp(2.8rem, 6vw, 5.5rem);
-        font-weight: 900;
-        letter-spacing: -0.03em;
-        color: #fff;
-        line-height: 0.95;
-        margin-bottom: 1.2rem;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 0.95;
+      margin-bottom: 1.2rem;
     }
     .support p {
-        font-size: 0.95rem;
-        font-weight: 300;
-        line-height: 1.75;
-        color: rgba(255,255,255,0.45);
-        margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2.5rem;
     }
     .btn-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     .btn {
-        display: inline-block;
-        padding: 0.85rem 1.6rem;
-        font-size: 0.7rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        text-decoration: none;
-        border: 1px solid rgba(255,255,255,0.18);
-        color: var(--text);
-        transition: background 0.25s, border-color 0.25s;
-        cursor: pointer;
+      display: inline-block;
+      padding: 0.85rem 1.6rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--text);
+      transition: background 0.25s, border-color 0.25s;
+      cursor: pointer;
     }
-    .btn:hover {
-        background: rgba(255,255,255,0.05);
-        border-color: rgba(255,255,255,0.35);
-    }
+    .btn:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.35); }
     .btn.primary {
-        background: #fff;
-        color: #111;
-        border-color: #fff;
-        padding: 0.9rem 2rem;
-        font-size: 0.72rem;
-        letter-spacing: 0.2em;
+      background: #fff;
+      color: #111;
+      border-color: #fff;
+      padding: 0.9rem 2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
     }
     .btn.primary:hover { background: rgba(255,255,255,0.87); }
     .donate-note {
-        margin-top: 1.5rem;
-        font-size: 0.68rem;
-        font-weight: 300;
-        color: rgba(255,255,255,0.25);
-        letter-spacing: 0.05em;
+      margin-top: 1.5rem;
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
     }
 
-    /* ── Fundraiser ── */
+    /* Fundraiser */
     .fundraiser-card {
-        border: 1px solid var(--border);
-        padding: 4rem;
-        max-width: 680px;
-        margin: 0 auto;
-        text-align: center;
+      border: 1px solid var(--border);
+      padding: 4rem;
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
     }
     .fundraiser-card h2 {
-        font-size: clamp(2rem, 4vw, 3.5rem);
-        font-weight: 900;
-        letter-spacing: -0.02em;
-        color: #fff;
-        margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1rem;
     }
     .fundraiser-card p {
-        font-size: 0.95rem;
-        font-weight: 300;
-        line-height: 1.75;
-        color: rgba(255,255,255,0.45);
-        margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 2.5rem;
     }
 
     footer {
-        padding: 2rem 2.4rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid var(--border);
+      padding: 2rem 2.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
     }
-    footer, footer p {
-        font-size: 0.68rem;
-        color: var(--muted);
-        letter-spacing: 0.05em;
-    }
+    footer, footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
     footer a {
-        font-size: 0.68rem;
-        color: var(--muted);
-        text-decoration: none;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        transition: color 0.25s;
+      font-size: 0.68rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.25s;
     }
     footer a:hover { color: var(--text); }
 
     @media (max-width: 800px) {
-        nav { padding: 1.2rem 1.4rem; }
-        nav ul { gap: 1.2rem; }
-        .hero {
-            padding: 0 1.4rem 3rem;
-            height: 100svh;
-        }
-        .hero-bg {
-            background-position: center;
-            transform: none;
-        }
-        .hero:hover .hero-bg { transform: none; }
-        section { padding: 5rem 1.4rem; }
-        .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-        .vision-grid { grid-template-columns: 1fr; }
-        .vision-img-wrap { display: none; }
-        .mood-strip { grid-template-columns: repeat(2, 1fr); }
-        .mood-strip figure:last-child { display: none; }
-        .banner { height: 280px; }
-        .fundraiser-card { padding: 2.5rem 1.4rem; }
-        footer { padding: 2rem 1.4rem; flex-direction: column; gap: 1rem; text-align: center; }
+      nav { padding: 1.2rem 1.4rem; }
+      nav ul { gap: 1.2rem; }
+      .hero { padding: 0 1.4rem 3rem; height: 100svh; }
+      .hero-bg { background-position: center; transform: none; }
+      .hero:hover .hero-bg { transform: none; }
+      section { padding: 5rem 1.4rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .vision-grid { grid-template-columns: 1fr; }
+      .vision-img-wrap { display: none; }
+      .mood-strip { grid-template-columns: repeat(2, 1fr); }
+      .mood-strip figure:last-child { display: none; }
+      .banner { height: 280px; }
+      .fundraiser-card { padding: 2.5rem 1.4rem; }
+      footer { padding: 2rem 1.4rem; flex-direction: column; gap: 1rem; text-align: center; }
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html" class="nav-logo">Ophelia</a>
+    <ul>
+      <li><a href="index.html" class="active">Film</a></li>
+      <li><a href="contributors.html">Contributors</a></li>
+    </ul>
+  </nav>
 
-<nav>
-  <a href="index.html" class="nav-logo">Ophelia</a>
-  <ul>
-    <li><a href="index.html" class="active">Film</a></li>
-    <li><a href="contributors.html">Contributors</a></li>
-  </ul>
-</nav>
-
-<!-- HERO — images/hero.jpg -->
-<div class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>Ophelia</h1>
-    <p class="hero-byline">A film by Lane Haven</p>
-  </div>
-</div>
-
-<!-- ABOUT — images/spiral.jpg -->
-<section>
-  <span class="label">The Film</span>
-  <div class="about-grid">
-    <div class="about-left">
-      <h2 class="about-headline">Sometimes the truth&nbsp;hurts. Sometimes it&nbsp;heals.</h2>
-      <img class="about-img" src="images/spiral.jpg" alt="A figure in a circle of light">
-    </div>
-    <div class="about-body">
-      <p>River is a college student who hasn't really dealt with losing his sister. When he gets cast as Ophelia in a campus production of Hamlet, he's not sure he wants to be there — but he stays.</p>
-      <p>As rehearsals go on, the grief he's been carrying starts to come out through the work. Hamlet's lines start to feel like his own. The stage becomes the one place he can't hide.</p>
-      <p>Set in 1996. Shot on a college campus. Character-driven, with flashes of surreal imagery where memory and performance blur into each other.</p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Ophelia</h1>
+      <p class="hero-byline">A film by Lane Haven</p>
     </div>
   </div>
-</section>
 
-<!-- PITCH DECK CTA -->
-<section class="deck-cta">
-  <div class="deck-cta-inner">
-    <span class="label">The Vision</span>
-    <h2 class="deck-headline">Read the&nbsp;deck.</h2>
-    <p class="deck-sub">The full story — characters, director's vision, world, and why this film needs to be made.</p>
-    <a href="OPHELIA_DECK.pdf" target="_blank" rel="noopener" class="btn deck-btn">View Pitch Deck</a>
-  </div>
-</section>
-
-<!-- MOOD STRIP — images/shadow.jpg | images/classroom.jpg | images/hallway.jpg -->
-<div class="mood-strip">
-  <figure>
-    <img src="images/shadow.jpg" alt="A shadow cast on a wall">
-    <figcaption>The Stage</figcaption>
-  </figure>
-  <figure>
-    <img src="images/classroom.jpg" alt="Dark classroom with spotlight">
-    <figcaption>The World</figcaption>
-  </figure>
-  <figure>
-    <img src="images/hallway.jpg" alt="Student in golden hallway">
-    <figcaption>The Walk</figcaption>
-  </figure>
-</div>
-
-<!-- DIRECTOR VISION — images/vision.jpg -->
-<section>
-  <div class="vision-grid">
-    <div class="vision-img-wrap">
-      <img class="vision-img" src="images/vision.jpg" alt="Director's vision">
+  <!-- THE FILM -->
+  <section>
+    <span class="label">The Film</span>
+    <div class="about-grid">
+      <div class="about-left">
+        <h2 class="about-headline">Theatre moves.</h2>
+        <img class="about-img" src="images/spiral.jpg" alt="A figure in a circle of light">
+      </div>
+      <div class="about-body">
+        <p>"OPHELIA" follows River, a college student dealing with the loss of his sister Sarah, an upperclassman theatre major. He takes an acting class, not sure he wants to be there, but he stays.</p>
+        <p>As rehearsals go on, the grief he's been carrying starts to come out through the work. "Hamlet's" lines start to feel like his own. The stage becomes the one place he can't hide.</p>
+        <p>Set in 1998. Shot on a college campus. Character-driven, with flashes of surreal imagery where memory and performance blur into one another.</p>
+      </div>
     </div>
-    <div>
-      <span class="label">Director's Vision</span>
-      <p class="pull-quote">"Ophelia is a stage where loss performs itself night after night, even after the audience has gone home."</p>
-      <p class="quote-source">— Lane Haven, Writer &amp; Director</p>
-      <p class="vision-secondary">Theatre has always felt more honest to me than most things. I want to bring that into film — not just adapt it, but let it breathe differently. We're shooting on 16mm. The grain matters. The closeness matters. It should feel like something you're inside, not watching.</p>
+  </section>
+
+  <!-- PITCH DECK CTA -->
+  <section class="deck-cta">
+    <div class="deck-cta-inner">
+      <span class="label">The Vision</span>
+      <h2 class="deck-headline">Read the&nbsp;deck.</h2>
+      <p class="deck-sub">The full story: characters, director's vision, world, and why this film needs to be made.</p>
+      <a href="OPHELIA_DECK.pdf" target="_blank" rel="noopener" class="btn deck-btn">View Pitch Deck</a>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SUPPORT -->
-<section class="support">
-  <div class="support-inner">
-    <span class="label">Support the Film</span>
-    <h2>Help us make&nbsp;it.</h2>
-    <p>Every dollar goes straight into production. We're a small crew doing this because we believe in the story — any support makes a real difference.</p>
-    <div class="btn-row">
-      <a href="https://gofund.me/40449217f" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
+  <!-- MOOD STRIP -->
+  <div class="mood-strip">
+    <figure>
+      <img src="images/shadow.jpg" alt="A shadow cast on a wall">
+    </figure>
+    <figure>
+      <img src="images/classroom.jpg" alt="Dark classroom with spotlight">
+    </figure>
+    <figure>
+      <img src="images/hallway.jpg" alt="Student in golden hallway">
+    </figure>
+  </div>
+
+  <!-- DIRECTOR VISION -->
+  <section>
+    <div class="vision-grid">
+      <div class="vision-img-wrap">
+        <img class="vision-img" src="images/ophelia-dancers.jpg" alt="Theatre performers on stage">
+      </div>
+      <div class="vision-text">
+        <span class="label">Vision</span>
+        <div class="vision-statement">
+          <p>Hey y'all, my name is Lane Haven. I am an actor, director, and writer from Keller, Texas. I'm in my third year studying film and theatre at the University of Southern California. OPHELIA is my attempt to marry these two artistic mediums.</p>
+          <p>I have been doing theatre since I was in 6th grade. It was my first love and gave me a playground to express myself from a young age. I want to share this passion through storytelling itself, giving theatre a new look and hopefully sparking newfound interest to a larger audience through the medium of film.</p>
+          <p>OPHELIA is set in the 90's but is stylized through a fresh modern lens, inspired by the evocative power of live theatre. I want this film to move people in the way theatre breathes, lives, and flows. Theatre has always been a space for connection, creativity, and transformation, and I believe it can reach even more people when presented in a bold, contemporary way.</p>
+        </div>
+        <p class="vision-instagram"><a href="https://instagram.com/opheliaffilm" target="_blank" rel="noopener">@opheliaffilm</a></p>
+      </div>
     </div>
-    <p class="donate-note">All donations go directly to production costs.</p>
-  </div>
-</section>
+  </section>
 
-<!-- FUNDRAISER -->
-<section>
-  <div class="fundraiser-card">
-    <span class="label">Coming Soon</span>
-    <h2>Fundraiser Event</h2>
-    <p>We're putting together a fundraiser — more details soon on Instagram and here. Keep an eye out.</p>
-    <a href="https://instagram.com/YOUR_INSTAGRAM_HANDLE" target="_blank" rel="noopener" class="btn">Follow on Instagram</a>
-  </div>
-</section>
+  <!-- SUPPORT -->
+  <section class="support">
+    <div class="support-inner">
+      <span class="label">Support the Film</span>
+      <h2>Help us make&nbsp;it.</h2>
+      <p>Every dollar goes straight into production. We're a small crew doing this because we believe in the story. Any support makes a real difference.</p>
+      <div class="btn-row">
+        <a href="https://gofund.me/40449217f" target="_blank" rel="noopener" class="btn primary">Donate on GoFundMe</a>
+      </div>
+      <p class="donate-note">All donations go directly to production costs.</p>
+    </div>
+  </section>
 
-<footer>
-  <p>© 2025 Ophelia. A film by Lane Haven.</p>
-  <a href="contributors.html">Contributors →</a>
-</footer>
+  <!-- FUNDRAISER -->
+  <section>
+    <div class="fundraiser-card">
+      <span class="label">Coming Soon</span>
+      <h2>Fundraiser Event</h2>
+      <p>We're putting together a fundraiser. More details soon on Instagram and here. Keep an eye out.</p>
+      <a href="https://instagram.com/opheliaffilm" target="_blank" rel="noopener" class="btn">Follow on Instagram</a>
+    </div>
+  </section>
 
+  <footer>
+    <p>&copy; 2025 Ophelia. A film by Lane Haven.</p>
+    <a href="contributors.html">Contributors &rarr;</a>
+  </footer>
 </body>
 </html>
