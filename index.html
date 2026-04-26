@@ -77,10 +77,9 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('images/hero.jpg') center center/cover no-repeat;
-      background-position: center 30%;
+      background: url('images/ophelia_3.jpeg') center center / cover no-repeat;
       transform: scale(1.04);
-      filter: brightness(0.5) saturate(0.75);
+      filter: brightness(0.55) saturate(0.8);
       transition: transform 6s ease;
     }
     .hero:hover .hero-bg { transform: scale(1.0); }
@@ -181,19 +180,12 @@
     /* Vision */
     .vision-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 1fr;
+      gap: 0;
       align-items: center;
+      max-width: 680px;
     }
-    .vision-img-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .vision-img {
-      width: 100%;
-      display: block;
-      filter: brightness(0.7) saturate(0.6);
-    }
+    /* vision image removed */
     .vision-text { }
     .vision-statement {
       font-size: 0.95rem;
@@ -373,7 +365,6 @@
       section { padding: 5rem 1.4rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .vision-grid { grid-template-columns: 1fr; }
-      .vision-img-wrap { display: none; }
       .mood-strip { grid-template-columns: repeat(2, 1fr); }
       .mood-strip figure:last-child { display: none; }
       .banner { height: 280px; }
@@ -443,9 +434,6 @@
   <!-- DIRECTOR VISION -->
   <section>
     <div class="vision-grid">
-      <div class="vision-img-wrap">
-        <img class="vision-img" src="images/ophelia-dancers.jpg" alt="Theatre performers on stage">
-      </div>
       <div class="vision-text">
         <span class="label">Vision</span>
         <div class="vision-statement">
