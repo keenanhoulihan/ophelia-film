@@ -1,219 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contributors - Ophelia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    :root {
-      --bg: #131313;
-      --bg2: #1a1a1a;
-      --text: #f0ede8;
-      --muted: #5a5a5a;
-      --border: rgba(255,255,255,0.07);
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      overflow-x: hidden;
-    }
-    /* Grain */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-    }
-    /* Nav */
-    nav {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      z-index: 500;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.4rem 2.4rem;
-      background: linear-gradient(to bottom, rgba(19,19,19,0.92) 0%, transparent 100%);
-    }
-    .nav-logo {
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text);
-      text-decoration: none;
-    }
-    nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      transition: color 0.25s;
-    }
-    nav a:hover, nav a.active { color: var(--text); }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contributors - Ophelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+--bg: #131313;
+--bg2: #1a1a1a;
+--text: #f0ede8;
+--muted: #5a5a5a;
+--border: rgba(255,255,255,0.07);
+}
+html { scroll-behavior: smooth; }
+body {
+background: var(--bg);
+color: var(--text);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+overflow-x: hidden;
+}
+/* Grain */
+body::after {
+content: '';
+position: fixed;
+inset: 0;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+pointer-events: none;
+z-index: 9999;
+}
+/* Nav */
+nav {
+position: fixed;
+top: 0; left: 0;
+width: 100%;
+z-index: 500;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.4rem 2.4rem;
+background: linear-gradient(to bottom, rgba(19,19,19,0.92) 0%, transparent 100%);
+}
+.nav-logo {
+font-size: 0.72rem;
+font-weight: 700;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--text);
+text-decoration: none;
+}
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav a {
+color: var(--muted);
+text-decoration: none;
+font-size: 0.68rem;
+font-weight: 600;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+transition: color 0.25s;
+}
+nav a:hover, nav a.active { color: var(--text); }
 
-    /* Page header */
-    .page-header {
-      padding: 180px 2.4rem 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-header h1 {
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      line-height: 0.9;
-      color: #fff;
-    }
+/* Page header */
+.page-header {
+padding: 180px 2.4rem 4rem;
+border-bottom: 1px solid var(--border);
+}
+.page-header h1 {
+font-size: clamp(3.5rem, 10vw, 8rem);
+font-weight: 900;
+letter-spacing: -0.04em;
+line-height: 0.9;
+color: #fff;
+}
 
-    /* Sections */
-    .dept-section {
-      padding: 4rem 2.4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .dept-section:last-of-type { border-bottom: none; }
-    .dept-title {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 2.5rem;
-      display: block;
-    }
+/* Sections */
+.dept-section {
+padding: 4rem 2.4rem;
+border-bottom: 1px solid var(--border);
+}
+.dept-section:last-of-type { border-bottom: none; }
+.dept-title {
+font-size: 0.65rem;
+font-weight: 700;
+letter-spacing: 0.32em;
+text-transform: uppercase;
+color: var(--muted);
+margin-bottom: 2.5rem;
+display: block;
+}
 
-    /* Contributor grid */
-    .contributor-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .contributor-card {
-      padding: 2rem;
-      background: var(--bg2);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: background 0.2s;
-    }
-    .contributor-card:hover { background: #202020; }
-    .contributor-name {
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #fff;
-      margin-bottom: 0.35rem;
-    }
-    .contributor-role {
-      font-size: 0.62rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 1rem;
-    }
-    .contributor-bio {
-      font-size: 0.875rem;
-      font-weight: 300;
-      line-height: 1.65;
-      color: rgba(255,255,255,0.42);
-    }
+/* Contributor grid */
+.contributor-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1.5rem;
+}
+.contributor-card {
+padding: 2rem;
+background: var(--bg2);
+border: 1px solid rgba(255,255,255,0.08);
+transition: background 0.2s;
+}
+.contributor-card:hover { background: #202020; }
+.contributor-name {
+font-size: 1.2rem;
+font-weight: 700;
+letter-spacing: -0.01em;
+color: #fff;
+margin-bottom: 0.35rem;
+}
+.contributor-role {
+font-size: 0.62rem;
+font-weight: 600;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--muted);
+margin-bottom: 1rem;
+}
+.contributor-bio {
+font-size: 0.875rem;
+font-weight: 300;
+line-height: 1.65;
+color: rgba(255,255,255,0.42);
+}
 
-    /* Footer */
-    footer {
-      padding: 2rem 2.4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border);
-    }
-    footer, footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
-    footer a {
-      font-size: 0.68rem;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.25s;
-    }
-    footer a:hover { color: var(--text); }
+/* Lane gets his own full-width row above Kevin & Kiki */
+.contributor-lane-row {
+margin-bottom: 1.5rem;
+}
+.contributor-lane-row .contributor-card {
+max-width: 100%;
+}
+.contributor-pair {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1.5rem;
+}
 
-    /* Responsive */
-    @media (max-width: 800px) {
-      nav { padding: 1.2rem 1.4rem; }
-      nav ul { gap: 1.2rem; }
-      .page-header { padding: 140px 1.4rem 3rem; }
-      .dept-section { padding: 3rem 1.4rem; }
-      .contributor-card { padding: 1.6rem; }
-      .contributor-grid { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.4rem; flex-direction: column; gap: 1rem; text-align: center; }
-    }
-  </style>
+/* Footer */
+footer {
+padding: 2rem 2.4rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-top: 1px solid var(--border);
+}
+footer, footer p { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em; }
+footer a {
+font-size: 0.68rem;
+color: var(--muted);
+text-decoration: none;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+transition: color 0.25s;
+}
+footer a:hover { color: var(--text); }
+
+/* Responsive */
+@media (max-width: 800px) {
+nav { padding: 1.2rem 1.4rem; }
+nav ul { gap: 1.2rem; }
+.page-header { padding: 140px 1.4rem 3rem; }
+.dept-section { padding: 3rem 1.4rem; }
+.contributor-card { padding: 1.6rem; }
+.contributor-grid { grid-template-columns: 1fr; }
+.contributor-pair { grid-template-columns: 1fr; }
+footer { padding: 2rem 1.4rem; flex-direction: column; gap: 1rem; text-align: center; }
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">Ophelia</a>
-    <ul>
-      <li><a href="index.html">Film</a></li>
-      <li><a href="contributors.html" class="active">Contributors</a></li>
-    </ul>
-  </nav>
+<!-- NAV -->
+<nav>
+<a href="index.html" class="nav-logo">Ophelia</a>
+<ul>
+<li><a href="index.html">Film</a></li>
+<li><a href="contributors.html" class="active">Contributors</a></li>
+<li><a href="https://gofund.me/40449217f" target="_blank" rel="noopener">GoFundMe</a></li>
+</ul>
+</nav>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <h1>CONTRIBUTORS</h1>
-  </div>
+<!-- PAGE HEADER -->
+<div class="page-header">
+<h1>CONTRIBUTORS</h1>
+</div>
 
-  <!-- DIRECTION & WRITING -->
-  <div class="dept-section">
-    <span class="dept-title">Direction &amp; Writing</span>
-    <div class="contributor-grid">
+<!-- DIRECTION, WRITING & PRODUCTION -->
+<div class="dept-section">
+<span class="dept-title">Direction &amp; Writing</span>
 
-      <div class="contributor-card">
-        <p class="contributor-name">Lane Haven</p>
-        <p class="contributor-role">Writer / Executive Producer / Co-Director</p>
-        <p class="contributor-bio">Lane Haven is an actor, director, and writer from Keller, Texas. He is studying theatre at the University of Southern California with a minor in cinematic arts. He has been doing theatre since 6th grade, and OPHELIA is his attempt to bring the emotional force of live performance into film through a bold, modern lens.</p>
-      </div>
+<!-- Lane: full-width row -->
+<div class="contributor-lane-row">
+<div class="contributor-card">
+<p class="contributor-name">Lane Haven</p>
+<p class="contributor-role">Writer / Executive Producer / Co-Director</p>
+<p class="contributor-bio">Lane Haven is an actor, director, and writer from Keller, Texas. He is studying theatre at the University of Southern California with a minor in cinematic arts. He has been doing theatre since 6th grade, and OPHELIA is his attempt to bring the emotional force of live performance into film through a bold, modern lens.</p>
+</div>
+</div>
 
-      <div class="contributor-card">
-        <p class="contributor-name">Kevin Rome</p>
-        <p class="contributor-role">Co-Director</p>
-        <p class="contributor-bio">Kevin Rome is co-directing Ophelia. BFA Acting, USC.</p>
-      </div>
+<!-- Kevin & Kiki: side by side -->
+<div class="contributor-pair">
+<div class="contributor-card">
+<p class="contributor-name">Kevin Rome</p>
+<p class="contributor-role">Co-Director</p>
+<p class="contributor-bio">Kevin Rome is co-directing Ophelia. BFA Acting, USC.</p>
+</div>
 
-    </div>
-  </div>
+<div class="contributor-card">
+<p class="contributor-name">Kiki McKenzie</p>
+<p class="contributor-role">Co-Producer</p>
+<p class="contributor-bio">Kiki McKenzie is co-producing Ophelia. She studies Cinema and Media Studies at USC with a minor in theatre.</p>
+</div>
+</div>
 
-  <!-- PRODUCTION -->
-  <div class="dept-section">
-    <span class="dept-title">Production</span>
-    <div class="contributor-grid">
+</div>
 
-      <div class="contributor-card">
-        <p class="contributor-name">Kiki McKenzie</p>
-        <p class="contributor-role">Co-Producer</p>
-        <p class="contributor-bio">Kiki McKenzie is co-producing Ophelia. She studies Cinema and Media Studies at USC with a minor in theatre.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2025 Ophelia. A film by Lane Haven.</p>
-    <a href="index.html">&larr; Back to Film</a>
-  </footer>
+<!-- FOOTER -->
+<footer>
+<p>&copy; 2025 Ophelia. A film by Lane Haven.</p>
+<a href="index.html">&larr; Back to Film</a>
+</footer>
 
 </body>
 </html>
